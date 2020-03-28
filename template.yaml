@@ -17,6 +17,8 @@ Resources:
       CodeUri: src/
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
+      MemorySize: 256
+      Timeout: 45
       Events:
         TestWebhook:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
