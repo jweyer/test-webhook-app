@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'test-webhook-app
+
+  Sample SAM Template for test-webhook-app
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  TestWebhookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://snap-software/1ab4eca847ba87aece0d8f319328dd6b
+      Handler: app.lambdaHandler
+      Runtime: nodejs12.x
+      Events:
+        TestWebhook:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+Outputs:
+  TestWebhookApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  TestWebhookFunction:
+    Description: Hello World Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - TestWebhookFunction
+      - Arn
+  TestWebhookFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - TestWebhookFunctionRole
+      - Arn

@@ -1,9 +1,9 @@
 {
-  "name": "hello_world",
+  "name": "test-webhook-app",
   "version": "1.0.0",
-  "description": "hello world sample for NodeJS",
+  "description": "Test Webhook App for NodeJS",
   "main": "app.js",
-  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
+  "repository": "https://github.com/jweyer/test-webhook-app",
   "author": "SAM CLI",
   "license": "MIT",
   "dependencies": {
